@@ -115,7 +115,3 @@ FAIL
 > but to give them an assistant that **never sleeps**. 🚀
 
 ---
-
-## 📄 License
-
-MIT
