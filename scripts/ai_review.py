@@ -49,7 +49,7 @@ If any security issue exists, you MUST reply FAIL.
 
     if has_danger_in_file or has_fail_in_review:
         print(f">>> PIPELINE FAILED for: {filepath}")
-        #sys.exit(1)
+        sys.exit(1)
     else:
         print(f">>> PASSED: {filepath}")
 """ 
