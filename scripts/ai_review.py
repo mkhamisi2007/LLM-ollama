@@ -52,11 +52,6 @@ If any security issue exists, you MUST reply FAIL.
         sys.exit(1)
     else:
         print(f">>> PASSED: {filepath}")
-""" 
-    if "FAIL" in result.upper():
-        print(f"File {filepath} : Faill ----------------------------------->")
-        #sys.exit(1)   # pipeline رو fail کن
-"""
 
 # فایل‌هایی که باید چک بشن
 files_to_review = [
