@@ -1,0 +1,35 @@
+# Code Push → [lint/test] → [AI Review] → Build → Deploy → [AI Log Analysis]
+# variables:
+#  OLLAMA_HOST: "http://your-ollama-server:11434"
+
+# .gitlab-ci.yml
+
+stages:
+  - test
+  - ai_review
+  - build
+  - deploy
+  - ai_monitor
+
+# ── مرحله ۱: AI review روی Dockerfile و manifest ──
+ai_code_review:
+  stage: ai_review
+  image: python:3.11-slim
+  before_script:
+    - pip install ollama -q
+  script:
+    - python scripts/ai_review.py
+  allow_failure: true        # pipeline رو block نکنه
+  only:
+    - merge_requests
+
+# ── مرحله ۲: بعد از deploy، لاگ‌ها رو آنالیز کن ──
+ai_log_analysis:
+  stage: ai_monitor
+  image: python:3.11-slim
+  before_script:
+    - pip install ollama -q
+  script:
+    - python scripts/ai_log_check.py
+  only:
+    - main
