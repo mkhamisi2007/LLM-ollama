@@ -53,7 +53,9 @@ You are a DevOps engineer. Review this file for:
 2. Best practice violations
 3. Misconfigurations
 
-IMPORTANT: Your FIRST word must be FAIL or PASS.
+IMPORTANT: Your FIRST word must be FAIL or PASS (nothing before it).
+Then list issues as bullet points.
+If any security issue exists, you MUST reply FAIL.
 ```
 
 If the file contains known security issues (hardcoded secrets, privileged containers, open CIDR blocks...), the pipeline **fails automatically**.
